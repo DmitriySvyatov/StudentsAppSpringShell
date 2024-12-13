@@ -1,0 +1,8 @@
+Dima;Svyatov;31
+Denis;Petrov;32
+Ivan;Fedoseev;33
+Anna;Sidorova;20
+Kristina;Sozonova;25
+Liza;Ignatova;27
+Semen;Ivanov;22
+Ivan;Semenov;29
