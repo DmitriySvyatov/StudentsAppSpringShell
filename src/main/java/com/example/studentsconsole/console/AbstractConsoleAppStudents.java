@@ -45,7 +45,7 @@ public class AbstractConsoleAppStudents {
     @ShellMethod(value = "Remove student by id from students list", key = "remove")
     @ShellMethodAvailability("isEmpty")
     public void deleteStudent(Integer id) {
-        if (studentService.getAllStudents().contains(id)) {
+        if (studentService.removeStudent(id).isPresent()) {
             studentService.removeStudent(id);
             eventPublisher.publishEvent(new StudentRemovedEvent(this, id));
         } else {
