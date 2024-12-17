@@ -13,6 +13,7 @@ import com.example.studentsconsole.service.StudentService;
 import com.example.studentsconsole.service.StudentValidatorService;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class AbstractConsoleAppStudents {
     @Value("${file.path}")
@@ -45,8 +46,8 @@ public class AbstractConsoleAppStudents {
     @ShellMethod(value = "Remove student by id from students list", key = "remove")
     @ShellMethodAvailability("isEmpty")
     public void deleteStudent(Integer id) {
-        if (studentService.removeStudent(id).isPresent()) {
-            studentService.removeStudent(id);
+        Optional<Student> removedStudent = studentService.removeStudent(id);
+        if (removedStudent.isPresent()) {
             eventPublisher.publishEvent(new StudentRemovedEvent(this, id));
         } else {
             eventPublisher.publishEvent(new StudentByIdNotFoundEvent(this, id));
@@ -83,5 +84,6 @@ public class AbstractConsoleAppStudents {
             return Availability.available();
         }
     }
+
 
 }
