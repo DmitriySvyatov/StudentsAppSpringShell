@@ -16,8 +16,6 @@ import java.io.IOException;
 import java.util.Optional;
 
 public class AbstractConsoleAppStudents {
-    @Value("${file.path}")
-    private String fileName;
 
     private final StudentService studentService;
     private final StudentValidatorService validator;
@@ -70,7 +68,7 @@ public class AbstractConsoleAppStudents {
     @ShellMethod(value = "Parse students from file", key = "parse")
     public void parseFromFile() {
         try {
-            fileParserService.parseFile(fileName, studentService);
+            fileParserService.parseFile(studentService);
             eventPublisher.publishEvent(new StudentParsingSuccessfulEvent(this));
         } catch (IOException e) {
             eventPublisher.publishEvent(new StudentParsingUnsuccessfulEvent(this));

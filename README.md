@@ -34,5 +34,5 @@
 
 ## По умолчанию 
 При запуске приложения выставлены настройки в application.properties:
-- file.path=src/main/resources/default-students.txt - расположение файла для парсинга студентов
+- file.path=default-students.txt - расположение файла для парсинга студентов
 - spring.profiles.active=init - профиль инициализации данных ( профиль default не загружает данные из файла при запуске приложения)
